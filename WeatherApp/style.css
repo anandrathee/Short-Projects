@@ -1,0 +1,122 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+html, body{
+    height: 100%;
+    width: 100%;
+}
+
+.main{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.card{
+    height: 22rem;
+    width: 16rem;
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0 0 0.8rem rgb(88, 87, 87);
+    border-radius: .5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: .8rem 0;
+    margin-bottom: 1rem;
+}
+
+.top{
+    display: flex;
+}
+
+.mid{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.bottom{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+#date{
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+.mid h1{
+    font-size: 3.2rem;
+}
+
+.mid #city{
+    font-size: 1.2rem;
+    letter-spacing: 1px;
+    font-weight: 500    ;
+}
+
+
+.humidity, .wind{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    
+}
+
+.humidity h4, .wind h4{
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.humidity h5, .wind h5{
+    font-weight: 500;
+}
+
+#weather{
+    /* white-space: nowrap; */
+    font-size: 1.2rem;
+    width: 12rem;
+    text-align: center;
+}
+
+
+
+
+input{
+    width: 14rem;
+    height: 2.5rem;
+    border-radius: .5rem;
+    outline: none;
+    margin-bottom: 1rem;
+    padding: .8rem;
+
+}
+
+input::placeholder{
+    
+    font-size: 1rem;
+    color: rgb(193, 192, 192);
+}
+
+.search{
+    width: 10rem;
+    height: 2.5rem;
+    border-radius: .5rem;
+    background-color: lightseagreen;
+    color: white;
+    border: none;
+    font-size: 1rem;
+    letter-spacing: 1px;
+}
