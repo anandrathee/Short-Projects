@@ -1,0 +1,101 @@
+const data = [
+  // Yeh array product objects ko store kar raha hai. Har object mein product ka image URL, naam, weight, price, stock status, added status, aur quantity hai.
+  {
+    image: "https://cdn.grofers.com/cdn-cgi/image/f=auto,fit=scale-down,q=70,metadata=none,w=270/app/assets/products/sliding_images/jpeg/0f895474-ac1e-4f52-9587-891e32ab1ba9.jpg?ts=1707312315",
+    pname: "Amul Pure Milk Cheese Slices",
+    weight: "350 g",
+    price: 140,
+    InStock: true,
+    added: false,
+    quantity: 1,
+  },
+  // Aise hi aur bhi objects hain.
+];
+
+const container = document.querySelector(".catProduct");
+// Yeh line DOM se ek element ko select kar rahi hai jiska class 'catProduct' hai, aur isko 'container' variable mein store kar rahi hai.
+
+const renderProducts = () => {
+  container.innerHTML = '';
+  // Yeh line 'container' ke andar ka existing content clear kar deti hai, taki naye products ko render kiya ja sake.
+
+  data.map((product, index) => {
+    // 'data' array ke har product ke liye ek naya 'productElement' create kiya ja raha hai.
+    const productElement = document.createElement("div");
+    productElement.classList.add("pro");
+    // Har product ke element ko 'pro' class di ja rahi hai.
+
+    productElement.innerHTML = `
+      <div class="proImg">
+        <img src="${product.image}" alt="${product.pname}">
+      </div>
+      <div class="proName">
+        <h1>${product.pname}</h1>
+      </div>
+      <div class="proWeight">
+        <h1>${product.weight}</h1>
+      </div>
+      <div class="proBtn" id="proBtn-${index}">
+        <div class="proPrice">
+          <h1>₹ ${product.price}</h1>
+        </div>
+        ${product.added ? `
+        <div class="cartQty">
+          <button class="minusBtn">-</button>
+          <h1>${product.quantity}</h1>
+          <button class="plusBtn">+</button>
+        </div>
+        ` : `
+        <button class="addBtn">ADD</button>
+        `}
+      </div>
+    `;
+    // Yeh code 'productElement' ka inner HTML set kar raha hai. Agar product 'added' hai to quantity buttons show honge, varna 'ADD' button dikhai dega.
+
+    container.appendChild(productElement);
+    // Har 'productElement' ko 'container' ke andar append kiya ja raha hai.
+
+    const addButton = productElement.querySelector(".addBtn");
+    const plusButton = productElement.querySelector(".plusBtn");
+    const minusButton = productElement.querySelector(".minusBtn");
+    // Yeh buttons ko select kar raha hai.
+
+    if (addButton) {
+      addButton.addEventListener("click", () => {
+        product.added = true;
+        renderProducts();
+      });
+    }
+    // Agar 'addButton' present hai, to click event par product 'added' ho jayega aur 'renderProducts' function firse call hoga.
+
+    if (plusButton) {
+      plusButton.addEventListener("click", () => {
+        product.quantity += 1;
+        renderProducts();
+      });
+    }
+    // Agar 'plusButton' present hai, to click event par product quantity increment ho jayegi aur 'renderProducts' function firse call hoga.
+
+    if (minusButton) {
+      minusButton.addEventListener("click", () => {
+        if (product.quantity > 1) {
+          product.quantity -= 1;
+        } else {
+          product.added = false;
+          product.quantity = 1;
+        }
+        renderProducts();
+      });
+    }
+    // Agar 'minusButton' present hai, to click event par product quantity decrement ho jayegi. Agar quantity 1 se kam ho jati hai, to product 'added' false ho jayega aur quantity 1 set ho jayegi. Fir 'renderProducts' function call hoga.
+  });
+
+  const cartQtyElement = document.getElementById("q");
+  const totalItems = data.reduce((acc, product) => acc + (product.added ? product.quantity : 0), 0);
+  cartQtyElement.textContent = totalItems;
+  // Yeh total added products ki quantity ko calculate kar raha hai aur usko cart quantity element mein set kar raha hai.
+};
+
+// Initial render
+renderProducts();
+// Yeh line page load hone par products ko initially render karne ke liye call ki ja rahi hai.
