@@ -1,0 +1,376 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+    cursor: none;
+    scroll-behavior: smooth;
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    color: white;
+    padding: 0 1vw;
+    /* overflow-x: scroll; */
+}
+
+body::-webkit-scrollbar{
+   width: 10px;
+   height: .1px;
+   
+}
+
+body::-webkit-scrollbar-thumb{
+    background-color: greenyellow;
+    /* height: 20px; */
+}
+
+.crsr{
+    width: 30px;
+    height: 30px;
+    background-color: rgba(172,255,47, 0.3);
+    border: 3px solid greenyellow;
+    position: absolute;
+    border-radius: 50%;
+    mix-blend-mode: difference;
+    
+
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 70px;
+}
+
+.logo h1{
+
+    font-size: 2.5vw;
+    font-weight: 300;
+    
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 4vw;    
+}
+
+nav a {
+    text-decoration: none;
+    color: white;
+    font-size: 1.1vw;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    z-index: 99;
+    transition: .5s;
+}
+
+nav a:hover{
+    color: greenyellow;
+}
+
+
+
+.main {
+    width: 100%;
+    z-index: -1;
+}
+
+.home {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: center;
+    width: 100%;   
+    /* background-color: red; */
+    height: calc(100vh - 70px);
+}
+
+.home h1 {
+    font-size: 8vw;
+    font-weight: 500;
+    line-height: 10vw;
+}
+
+.home-bottom {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    margin-top: 5vh;
+}
+
+.home-bottom button {
+    width: 18vw;
+    height:5vw;
+    font-size: 1.1vw;
+    background-color: transparent;
+    border: 1px solid white;
+    color: white;
+    border-radius: 10vw;
+  
+}
+
+
+.home-bottom p {
+    width: 30%;
+}
+
+.about {
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.about-top h1 {
+    font-size: 6vw;
+    font-weight: 400;
+    line-height: 6vw;
+    z-index: 999;
+}
+
+.about-mid {
+    width: 100%;
+    display: flex;
+    justify-content: end;
+    z-index: 999;
+}
+
+.about-mid p {
+    width: 45%;
+    font-size: 1.5vw;
+}
+
+.mark1::-webkit-scrollbar, .mark2::-webkit-scrollbar {
+    display: none;
+}
+
+.mark-top, .mark-bottom, .mark2-top, .mark2-bottom {
+    display: flex;
+    gap: 5vw;
+}
+
+
+
+.mark1, .mark2 {
+    position: relative;
+    display: flex;
+    flex-shrink: 0;
+    overflow-x: auto;
+    gap: 2vw;
+    white-space: nowrap;
+    padding: 20px;
+    z-index: 1;
+}
+
+.mark1 .mark-top, .mark1 .mark-bottom {
+    
+    animation: mark-anime 10s linear infinite;
+}
+
+.mark2 .mark2-top, .mark2 .mark2-bottom {
+    animation: mark-anime2 10s linear infinite;
+}
+
+.mark1 h1, .mark2 h1 {
+    font-weight: 200;
+    font-size: 3.2vw;
+    color: white;
+   
+}
+
+
+.mark1::before, .mark2::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0px;
+    height: 100%;
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.836), transparent);
+    pointer-events: none;
+}
+
+.mark1::after, .mark2::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 0px;
+    height: 100%;
+    background: linear-gradient(to left, rgb(0, 0, 0), transparent);
+    pointer-events: none;
+}
+
+@keyframes mark-anime {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+@keyframes mark-anime2 {
+    0% {
+        transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
+
+
+
+.projects {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 20px;
+}
+.title {
+    padding: 10px 0;
+}
+.title h3 {
+    font-size: 2rem;
+    font-weight: 400;
+}
+#work-first {
+    width: 100%;
+    
+    border-top: 2px solid #71717a;
+    /* border-bottom: 2px solid #71717a; */
+    position: relative;
+    /* background-color: red; */    
+}
+.mob-img{
+    position: absolute;    
+    right: 0rem;
+    top: -7.7rem;
+    width: 25vw;
+    height: 19vw;
+    overflow: hidden;
+    border: 16px solid white;
+    display: none;
+} 
+
+.mob-img img{
+    width: 100%;
+   height: 100%;
+   object-fit: cover;
+    
+}
+
+#work-first-h1{
+    font-size: 3.5rem;
+    font-weight: 400;
+    /* background-color: red; */
+    line-height: 10rem;
+}
+
+.mob-img{
+    pointer-events: none;
+}
+#work-sec {
+    width: 100%;
+    /* padding: 2.5vw 0; */
+    border-top: 2px solid #71717a;
+    border-bottom: 2px solid #71717a;
+    position: relative;
+    
+}
+
+.indi-img{
+    position: absolute;    
+    right: 0rem;
+    top: -7.7rem;
+    width: 25vw;
+    height: 19vw;
+    overflow: hidden;
+    border: 16px solid white;
+    display: none;
+} 
+
+.indi-img .Indigency{
+    width: 100%;
+   height: 100%;
+   object-fit: cover;
+    
+}
+#work-sec-h1 {
+    font-size: 3.5rem;
+    font-weight: 400;
+    /* background-color: red; */
+    line-height: 10rem;
+}
+
+.indi-img{
+    pointer-events: none;
+}
+
+
+#work-third {
+    width: 100%;
+    /* padding: 2.5vw 0; */
+    /* border-top: 2px solid #71717a; */
+    border-bottom: 2px solid #71717a;
+    position: relative;
+
+}
+
+.ene-img{
+    position: absolute;    
+    right: 0rem;
+    top: -7.7rem;
+    width: 25vw;
+    height: 19vw;
+    overflow: hidden;
+    border: 16px solid white;
+    display: none;
+} 
+
+.ene-img .eneftee{
+    width: 100%;
+   height: 100%;
+   object-fit: cover;
+    
+}
+#work-third-h1 {
+    font-size: 3.5rem;
+    font-weight: 400;
+    /* background-color: red; */
+    line-height: 10rem;
+}
+
+.ene-img{
+    pointer-events: none;
+}
+
+.contact {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    /* background-color: red; */
+    padding: 8px 0;
+}
+.contact h2 {
+    font-size: 1.5vw;
+    font-weight: 400;
+}
+.contact h4 {
+    font-size: 1rem;
+    font-weight: 300;
+}
