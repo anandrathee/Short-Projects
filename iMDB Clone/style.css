@@ -18,9 +18,17 @@ header {
     height: 60px;
     display: flex;
     align-items: center;
+    /* align-content: center; */
     justify-content: space-between;
     background-color: #1a1a1a;
     padding: 0 5rem;
+}
+
+.logo{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
 }
 
 .watchlist {
@@ -28,10 +36,14 @@ header {
     color: white;
     align-items: center;
     justify-content: center;
-    gap: 5px;
-    padding: 0.5rem 0.7rem;
+    /* gap: 5px; */
+    padding: 0.5rem 0.9rem;
     border-radius: 0.3rem;
     transition: 0.5s;
+}
+.watchlist h3 {
+    font-size: 0.9rem;
+    font-weight: 300;
 }
 
 .watchlist:hover {
@@ -60,10 +72,7 @@ header a:hover {
     background-color: #2c2c2c;
 }
 
-.watchlist h3 {
-    font-size: 0.9rem;
-    font-weight: 300;
-}
+
 
 .signIn {
     padding: 0.5rem 0.9rem;
@@ -83,7 +92,7 @@ header a:hover {
 .trailer {
     width: 100%;
     height: calc(100% - 60px);
-    margin-top: 5rem;
+    margin-top:3rem;
     padding: 0 5rem;
     display: flex;
     gap: 1rem;
@@ -92,34 +101,55 @@ header a:hover {
 
 
 .video {
-    width: 68%;
+    width: 70%;
 }
 
 .noTrailer{
     position: absolute;
-    top: 6rem;
+    top: 7rem;
     border-radius: .5rem;
     display: none;
     text-align: center;
     align-content: center;
     color: #2c2c2c;
-    width: 68%;
-    height: 75%;
+    width: 62%;
+    height: 73%;
+
     border: 1px solid #2c2c2c;
 }
 
 .trailer iframe {
     width: 100%;
-    height: 70vh;
+    height: 74vh;
     border-radius: 0.5rem;
 }
 
-/* .trailer .list {
+.trailer-list {
     width: 30%;
-    height: 40vh;
-    background-color: #2c2c2c;
+    height: 74vh;
+    background-color: #1a1a1a;
     border-radius: 0.5rem;
-} */
+    position: relative;
+    overflow: hidden;
+}
+
+.trailer-list .movie-banner img{
+    width: 100%;
+}
+
+.trailer-list h2{
+    font-size: 1.2rem;
+    font-weight: 600;
+    padding: 0 .5rem;
+    /* margin-top: 1rem; */
+}
+
+.trailer-list p{
+    margin-top: .4rem;
+    font-size: .9rem;
+    padding: 0 .5rem;
+}
+
 
 .main {
     display: flex;
@@ -189,7 +219,7 @@ header a:hover {
 
 .play-button{
     width: 2rem;
-    background-color: red;
+    background-color: #1a1a1a;
     color: white;
     border: none;
     cursor: pointer;
@@ -209,6 +239,7 @@ header a:hover {
     /* justify-content: ; */
     gap: .5rem;
     height: 2rem;
+    /* width: 100%; */
     padding: .5rem .9rem;
     border-radius: .3rem;
     
@@ -263,40 +294,33 @@ header a:hover {
     justify-content: center;
 }
 
-.nextPrev{
-  
-    width: 11%;
+/* Add these styles for better pagination UI */
+.nextPrev {
+    width: 12rem; /* Adjusted for better spacing */
     height: 2.5rem;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between; /* Changed to space-between */
     border: 1px solid #2c2c2c;
     gap: 1rem;
     border-radius: .5rem;
     overflow: hidden;
     padding: .5rem;   
-    
 }
 
-.nextPrev button{
-    width: 4rem;
+.nextPrev button {
+    width: 3rem; /* Adjusted for better button size */
     height: 100%;
-    width: 100%;
     font-size: 1rem;
     color: white;
     background-color: #010000;
-    /* background-color: none; */
     border: none;
     font-weight: 400;
-    
-    /* color: black; */
     cursor: pointer;
-    
-
 }
 
-.nextPrev h2{
+.page-number {
     font-size: 1rem;
-    font-weight: 400;    
-   
+    font-weight: 400;
+    color: white;
 }
